@@ -24,9 +24,16 @@ public class MainActivity extends AppCompatActivity {
         botonReset = findViewById(R.id.botonReset);
         editNombre = findViewById(R.id.editNombre);
         textSaludo = findViewById(R.id.textSaludo);
+
+        botonSaludar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saludar();
+            }
+        });
     }
 
-    public void saludar(View v){
+    private void saludar(){
         if(editNombre.getText().toString().equals("")){
             Toast.makeText(this, "Debe ingresar un Nombre", Toast.LENGTH_SHORT).show();
             //Log.i("saludo", "saludar: ");
@@ -44,5 +51,12 @@ public class MainActivity extends AppCompatActivity {
         editNombre.setText("");
         botonReset.setEnabled(false);
 
+    }
+
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 }
